@@ -1,0 +1,36 @@
+package com.company;
+
+import java.util.*;
+import static java.lang.Math.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner n=new Scanner(System.in);
+        boolean flag=true;
+        while(flag) {
+            System.out.println("请输入你想知道的兔子数量的月份(或者按0退出):");
+            int x = n.nextInt();
+            if(x==0){
+                break;
+            }
+            else {
+                int a = count(x);
+                System.out.format("第%d个月的兔子数量是%d\n", x, a);
+            }
+        }
+    }
+
+    public static int count(int n){
+        int m1=1;   //第一个月份兔子数量是1
+        int m2=1;   //第二个月份兔子数量是1
+        int total=0;  //计算兔子数量
+        for(int i=2;i<n;i++)
+        {
+            total=m1+m2;
+            m1=m2;
+            m2=total;
+        }
+
+
+        return m2;
+    }
+}
